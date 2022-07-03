@@ -1,0 +1,48 @@
+class Vehicle:
+    def __init__(self, make, model, color, year, mileage):
+        self.__make__ = make
+        self.__model__ = model
+        self.__color__ = color
+        self.__year__ = year
+        self.__mileage__ = mileage
+
+vehicles = []
+
+def add_new_vehicle():
+    vehicles.append([
+    input('Enter new vehicle make: '),
+    input('Enter new vehicle model: '),
+    input('Enter new vehicle color: '),
+    int(input('Enter new vehicle year: ')),
+    int(input('Enter new vehicle mileage: '))
+        ])
+
+def print_vehicles():
+    for count, vehicle in enumerate(vehicles):
+            print(count, vehicle)
+
+command = input('Enter command: A to add vehicle, R to remove, U to update, P to print list, or Q to quit ')
+while command != 'Q':
+    if command == 'A':
+        add_new_vehicle()
+        print_vehicles()
+    elif command == 'R':
+        vehicles.pop(int(input('Enter vehicle index to remove: ')))
+        print_vehicles()
+    elif command == 'U':
+        index_input = int(input('Enter vehicle index to update: '))
+        vehicles[index_input] = [input('Enter updated vehicle make: '),
+        input('Enter updated vehicle model: '),
+        input('Enter updated vehicle color: '),
+        int(input('Enter updated vehicle year: ')),
+        int(input('Enter updated vehicle mileage: '))]
+        print_vehicles()
+    elif command == 'P':
+        print_vehicles()
+    else:
+        print('Invalid command')
+
+    command = input('Enter command: A to add vehicle, R to remove, U to update, P to print list, or Q to quit ')
+
+
+
